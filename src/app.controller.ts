@@ -21,4 +21,13 @@ export class AppController {
       macskak: await this.appService.macskakLista(),
     }
   }
+    
+  @Get('jatekok')
+  @Render('jatekok')
+  async getJatekok() {
+    return {
+      title: 'Játékok Listája',
+      jatekok: await this.appService.jatekokLista(),
+    }
+  }
 }

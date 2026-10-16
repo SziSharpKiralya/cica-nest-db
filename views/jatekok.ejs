@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= title %>
+    </title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Név</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% jatekok.forEach(jatek=> { %>
+            <tr>
+                <td><%= jatek.id %></td>
+                <td><%= jatek.nev %></td>
+            </tr>
+            <% }) %>
+        </tbody>
+    </table>
+</body>
+</html>
