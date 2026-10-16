@@ -30,4 +30,13 @@ export class AppController {
       jatekok: await this.appService.jatekokLista(),
     }
   }
+
+  @Get('macskaKeres')
+  @Render('macskaKeres')
+  async getMacskaKeres(@Query('szemszin') szemszin: string = '') {
+    return {
+      title: 'Macska Keresés',
+      macskakSzurt: await this.appService.getMacskaBySzemSzin(szemszin),
+    }
+  }
 }

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= title %>
+    </title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <form action="/macskaKeres" method="get">
+        <label for="szemszin">Szem szín:</label>
+        <input type="text" id="szemszin" name="szemszin">
+        <button type="submit">Keresés</button>
+    </form>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Súly</th>
+                <th>Szem szín</th>
+                <th>Gazdi ID</th>
+                <th>Játék ID</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% macskakSzurt.forEach(macskak=> { %>
+            <tr>
+                <td><%= macskak.id %></td>
+                <td><%= macskak.suly %></td>
+                <td><%= macskak.szem_szin %></td>
+                <td><%= macskak.gazdi_id %></td>
+                <td><%= macskak.jatek_id %></td>
+            </tr>
+            <% }) %>
+        </tbody>
+    </table>
+</body>
+</html>

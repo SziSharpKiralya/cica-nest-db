@@ -34,4 +34,14 @@ export class AppService {
     await connection.end();
     return results as Jatekok[];
   }
+
+  async getMacskaBySzemSzin(szemszin: string) {
+    const connection = await this.createConnection();
+    const [results] = await connection.execute(
+      'SELECT id, suly, szem_szin, gazdi_id, jatek_id FROM macskak WHERE szem_szin LIKE ?',
+      [`%${szemszin}%`]
+    );
+    await connection.end();
+    return results as Macskak[];
+  }
 }
