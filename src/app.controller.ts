@@ -1,4 +1,4 @@
-import { Controller, Get, Query, Render } from '@nestjs/common';
+import { Body, Controller, Get, Post, Query, Render } from '@nestjs/common';
 import { AppService } from './app.service.js';
 
 @Controller()
@@ -38,5 +38,19 @@ export class AppController {
       title: 'Macska Keresés',
       macskakSzurt: await this.appService.getMacskaBySzemSzin(szemszin),
     }
+  }
+
+  @Get('ujJatek')
+  @Render('ujJatek')
+  async getUjJatek() {
+    return {
+      title: 'Új Játék'
+    }
+  }
+
+  @Post('ujJatek')
+  async postUjJatek(@Body() body: { nev: string }) {
+    await this.appService.createJatek(body.nev);
+    return "Sikeres feltöltés"
   }
 }

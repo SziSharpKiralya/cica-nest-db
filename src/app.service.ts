@@ -44,4 +44,14 @@ export class AppService {
     await connection.end();
     return results as Macskak[];
   }
+
+  async createJatek(nev: string) {
+    const connection = await this.createConnection();
+    await connection.execute(
+      'INSERT INTO jatekok (nev) VALUES (?)',
+      [nev]
+    );
+    await connection.end();
+    return true;
+  }
 }
