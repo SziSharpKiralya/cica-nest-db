@@ -1,4 +1,4 @@
-import { Controller, Get, Render } from '@nestjs/common';
+import { Controller, Get, Query, Render } from '@nestjs/common';
 import { AppService } from './app.service.js';
 
 @Controller()
@@ -10,6 +10,15 @@ export class AppController {
   getHello() {
     return {
       title: 'My First NestJS App'
+    }
+  }
+
+  @Get('macskak')
+  @Render('macskak')
+  async getMacskak() {
+    return {
+      title: 'Macskák Listája',
+      macskak: await this.appService.macskakLista(),
     }
   }
 }
